@@ -149,7 +149,7 @@ public float slideSpeed = 5;
             return;
         }
 
-        if (coll.onWall && !coll.onGround && !wallGrab)
+        if (coll.onWall && !coll.onGround && !canGrab)
         {
             wallGrab = true;
         }

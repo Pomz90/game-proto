@@ -29,7 +29,7 @@ public class Shadows : MonoBehaviour
                 obj.GetComponent<SpriteRenderer>().sprite = objSprite;
                 obj.transform.localScale = this.transform.localScale;
                 ghostDelaySecond = ghostDelay;
-                Destroy(obj, 0.15f);
+                Destroy(obj, 0.1f);
             }
 
         }
