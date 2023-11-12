@@ -5,9 +5,6 @@ using UnityEngine;
 public class Shadows : MonoBehaviour
 {
 
-    private Movement move;
-    private AnimationScript anim;
-
     public float ghostDelay;
     private float ghostDelaySecond;
     public GameObject ghost;

@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour
     public float moveSpeed = 2.0f;
     public Transform leftBox;
     public Transform rightBox;
+    public Transform player;
 
     private bool moveRight = true;
 
@@ -18,6 +19,14 @@ public class EnemyMovement : MonoBehaviour
 
         // Move the object
         transform.position = newPosition;
+
+        // Rotate the object to face the player's position
+        if (player != null)
+        {
+            Vector3 directionToPlayer = player.position - transform.position;
+            float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
 
         // Check if the object is within the leftBox or rightBox trigger zones
         if (leftBox != null && rightBox != null)
@@ -33,3 +42,4 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 }
+

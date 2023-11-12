@@ -10,7 +10,6 @@ public class Solid : MonoBehaviour
     [HideInInspector]
     public SpriteRenderer sr;
 
-    public int side = 1;
     private SpriteRenderer rend;
     private Shader mat;
     public Color col;

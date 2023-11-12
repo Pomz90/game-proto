@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    
     public Transform player;
     public float shootingInterval = 2f;
     public float bulletSpeed = 30f;
@@ -35,6 +36,9 @@ public class EnemyBullet : MonoBehaviour
         // Normalize the direction vector
         direction.Normalize();
 
+        // Calculate the angle in degrees
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
         // Instantiate a bullet prefab at the spawn point
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
 
@@ -42,7 +46,12 @@ public class EnemyBullet : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * bulletSpeed; // Adjust the speed as needed
 
+        // Set the rotation of the bullet to face the direction
+        bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         // Destroy the bullet after the specified lifetime
         Destroy(bullet, bulletLifetime);
     }
+
+
 }
