@@ -35,7 +35,6 @@ public class AnimationScript : MonoBehaviour
     public void SetHorizontalMovement(float x,float y)
     {
         anim.SetFloat("HorizontalAxis", Mathf.Abs(x));
-        anim.SetFloat("VerticalAxis", y);
     }
 
     public void SetTrigger(string trigger)
